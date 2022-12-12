@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,8 +46,10 @@ public class Framebanpecah extends javax.swing.JFrame {
         outc = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         outd = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("KALKULATOR MEMBANDINGKAN PECAHAN");
@@ -61,6 +64,11 @@ public class Framebanpecah extends javax.swing.JFrame {
                 inaActionPerformed(evt);
             }
         });
+        ina.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inaKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("____");
@@ -72,12 +80,22 @@ public class Framebanpecah extends javax.swing.JFrame {
                 inbActionPerformed(evt);
             }
         });
+        inb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inbKeyTyped(evt);
+            }
+        });
 
         inc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         inc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 incActionPerformed(evt);
+            }
+        });
+        inc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                incKeyTyped(evt);
             }
         });
 
@@ -89,6 +107,11 @@ public class Framebanpecah extends javax.swing.JFrame {
         ind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 indActionPerformed(evt);
+            }
+        });
+        ind.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                indKeyTyped(evt);
             }
         });
 
@@ -128,49 +151,47 @@ public class Framebanpecah extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ina, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4))
+                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(outa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)
                                     .addComponent(outb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(inc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(ind, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(outlabel)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(outc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(outd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6)))
+                                .addGap(36, 36, 36)
+                                .addComponent(outlabel)
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(outc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(outd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ina, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(114, 114, 114))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel4))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(inb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(inc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(ind, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,8 +199,10 @@ public class Framebanpecah extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -200,7 +223,7 @@ public class Framebanpecah extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(outc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(outa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -215,11 +238,11 @@ public class Framebanpecah extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(outd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(43, Short.MAX_VALUE))
+                        .addContainerGap(30, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(outlabel)
-                        .addGap(77, 77, 77))))
+                        .addGap(68, 68, 68))))
         );
 
         pack();
@@ -241,21 +264,15 @@ public class Framebanpecah extends javax.swing.JFrame {
             //mencari kpk
             double kpk = 0;
             for (int x = 1; x <= inputd; x++) {
-
                 kpk = (kpk + inputb);
-
                 if (kpk % inputd == 0) {
-
                     int intkpk = (int) kpk;
                     String tekskpk = String.valueOf(intkpk);
                     outb.setText(tekskpk);
                     outd.setText(tekskpk);
-
                     break;
-
                 }
             }
-
             int hasila = (int) ((kpk / inputb) * inputa);
             int hasilc = (int) ((kpk / inputd) * inputc);
             String outputa = String.valueOf(hasila);
@@ -269,9 +286,7 @@ public class Framebanpecah extends javax.swing.JFrame {
             } else {
                 outlabel.setText(">");
             }
-
         }
-
     }//GEN-LAST:event_inaActionPerformed
 
     private void inbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inbActionPerformed
@@ -290,21 +305,15 @@ public class Framebanpecah extends javax.swing.JFrame {
             //mencari kpk
             double kpk = 0;
             for (int x = 1; x <= inputd; x++) {
-
                 kpk = (kpk + inputb);
-
                 if (kpk % inputd == 0) {
-
                     int intkpk = (int) kpk;
                     String tekskpk = String.valueOf(intkpk);
                     outb.setText(tekskpk);
                     outd.setText(tekskpk);
-
                     break;
-
                 }
             }
-
             int hasila = (int) ((kpk / inputb) * inputa);
             int hasilc = (int) ((kpk / inputd) * inputc);
             String outputa = String.valueOf(hasila);
@@ -318,9 +327,7 @@ public class Framebanpecah extends javax.swing.JFrame {
             } else {
                 outlabel.setText(">");
             }
-
         }
-
     }//GEN-LAST:event_inbActionPerformed
 
     private void indActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indActionPerformed
@@ -339,21 +346,15 @@ public class Framebanpecah extends javax.swing.JFrame {
             //mencari kpk
             double kpk = 0;
             for (int x = 1; x <= inputd; x++) {
-
                 kpk = (kpk + inputb);
-
                 if (kpk % inputd == 0) {
-
                     int intkpk = (int) kpk;
                     String tekskpk = String.valueOf(intkpk);
                     outb.setText(tekskpk);
                     outd.setText(tekskpk);
-
                     break;
-
                 }
             }
-
             int hasila = (int) ((kpk / inputb) * inputa);
             int hasilc = (int) ((kpk / inputd) * inputc);
             String outputa = String.valueOf(hasila);
@@ -367,9 +368,7 @@ public class Framebanpecah extends javax.swing.JFrame {
             } else {
                 outlabel.setText(">");
             }
-
         }
-
     }//GEN-LAST:event_indActionPerformed
 
     private void incActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incActionPerformed
@@ -388,21 +387,15 @@ public class Framebanpecah extends javax.swing.JFrame {
             //mencari kpk
             double kpk = 0;
             for (int x = 1; x <= inputd; x++) {
-
                 kpk = (kpk + inputb);
-
                 if (kpk % inputd == 0) {
-
                     int intkpk = (int) kpk;
                     String tekskpk = String.valueOf(intkpk);
                     outb.setText(tekskpk);
                     outd.setText(tekskpk);
-
                     break;
-
                 }
             }
-
             int hasila = (int) ((kpk / inputb) * inputa);
             int hasilc = (int) ((kpk / inputd) * inputc);
             String outputa = String.valueOf(hasila);
@@ -416,10 +409,40 @@ public class Framebanpecah extends javax.swing.JFrame {
             } else {
                 outlabel.setText(">");
             }
-
         }
-
     }//GEN-LAST:event_incActionPerformed
+
+    private void inaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inaKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_inaKeyTyped
+
+    private void inbKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inbKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_inbKeyTyped
+
+    private void incKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_incKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_incKeyTyped
+
+    private void indKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_indKeyTyped
+        // TODO add your handling code here:
+        char karakter = evt.getKeyChar();
+        if (!(((karakter >= '0') && (karakter <= '9') || (karakter == KeyEvent.VK_BACK_SPACE) || (karakter == KeyEvent.VK_DELETE) ))) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_indKeyTyped
 
     /**
      * @param args the command line arguments
@@ -469,6 +492,7 @@ public class Framebanpecah extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField outa;
     private javax.swing.JTextField outb;
     private javax.swing.JTextField outc;
